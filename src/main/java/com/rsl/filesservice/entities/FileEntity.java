@@ -4,17 +4,15 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@Entity
-@Table
 @Data
+@Entity
+@Table(name = "files")
 @RequiredArgsConstructor
-public class MonoFile {
+public class FileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String type;
     private String sourceUrl;
-
-    public MonoFile(String sourceUrl) {
-        this.sourceUrl = sourceUrl;
-    }
+    private String size;
 }

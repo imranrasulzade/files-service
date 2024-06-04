@@ -11,4 +11,6 @@ spring:
       ddl-auto: update
 
 file:
-  path: C:\\Users\\imran\\Documents
+  path: './files/'
+
+url: 'http://localhost:8080'

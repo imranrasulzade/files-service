@@ -13,10 +13,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
@@ -44,6 +42,12 @@ public class FileController {
                 .contentType(MediaType.parseMediaType(fileResponse.getContentType()))
                 .body(fileResponse.getResource());
 
+    }
+
+
+    @PostMapping("/upload-file")
+    public ResponseEntity<?> uploadFile(@RequestBody MultipartFile file) throws IOException {
+        return ResponseEntity.ok(fileService.uploadFile(file));
     }
 
 }
